@@ -1,6 +1,7 @@
+import updateShowList from 'updateShowList';
+
 const reducer = (state, action) => ({
-  state,
-  action,
+  showList: updateShowList(state, action),
 });
 
 export default reducer;
