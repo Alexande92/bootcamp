@@ -6,9 +6,17 @@ import { Meteor } from 'meteor/meteor';
 import App from '../imports/components/App';
 
 import store from './store';
+
+import ShowService from '../imports/startup/api/showService';
 import './main.html';
 
+
 Meteor.startup(() => {
+  const shows = new ShowService();
+  Meteor.setInterval(() => {
+    shows.getShows();
+  }, shows.updateRate);
+
   ReactDOM.render(
     <Provider store={store}>
       <App />
