@@ -1,5 +1,6 @@
 class TraktApiService {
   constructor () {
+    this.currentPage = 0;
     this.apiKey = '8fb3145a52babd068a1399f453cc15fd5c1c450140e893d3da0b1dce0f59418d';
     this.apiVersion = 2;
     this.apiBase = 'https://api.trakt.tv';
@@ -31,8 +32,8 @@ class TraktApiService {
     return res.json();
   }
 
-  getTrendingShows (page = '') {
-    return this.getResource(`${this.apiBase}/shows/popular/?page=${page}&limit=`);
+  getTrendingShows (page) {
+    return this.getResource(`${this.apiBase}/shows/popular/?page=${page}&limit=20`);
   }
 }
 
