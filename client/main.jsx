@@ -7,7 +7,7 @@ import App from '../imports/components/App';
 
 import store from './store';
 
-import ShowService from '../imports/startup/api/showService';
+import ShowService from '../imports/api/showService';
 import './main.html';
 
 
