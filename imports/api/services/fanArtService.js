@@ -1,3 +1,5 @@
+import { HTTP } from 'meteor/http';
+
 class FanArtService {
   constructor () {
     this.apiKey = '037a5eb582f2d138b44ac24f3c6a7341';
@@ -9,13 +11,12 @@ class FanArtService {
     return `?api_key=${this.apiKey}&client_key=${this.clientKey}`;
   }
 
-  async getResource (url) {
-    const res = await fetch(url);
-
-    if (!res.ok) {
-      throw new Error(`Couldn't fetch ${url} receive ${res.status}`);
+  getResource (url) {
+    try {
+      return HTTP.call('GET', url);
+    } catch (err) {
+      throw new Error(`Couldn't fetch ${url} receive ${err}`);
     }
-    return res.json();
   }
 
   getShowPoster (id) {

@@ -1,3 +1,5 @@
+import { HTTP } from 'meteor/http';
+
 class TraktApiService {
   constructor () {
     this.apiKey = '8fb3145a52babd068a1399f453cc15fd5c1c450140e893d3da0b1dce0f59418d';
@@ -6,23 +8,21 @@ class TraktApiService {
   }
 
   getHeaders () {
-    const myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/json');
-    myHeaders.append('trakt-api-version', this.apiVersion);
-    myHeaders.append('trakt-api-key', this.apiKey);
-
     return {
-      headers: myHeaders,
+      'Content-Type': 'application/json',
+      'trakt-api-version': this.apiVersion,
+      'trakt-api-key': this.apiKey,
     };
   }
 
-  async getResource (url) {
-    const res = await fetch(url, this.getHeaders());
-    if (!res.ok) {
-      throw new Error(`Couldn't fetch ${url} receive ${res.status}`);
+  getResource (url) {
+    try {
+      return HTTP.call('GET', url, {
+        headers: this.getHeaders(),
+      });
+    } catch (err) {
+      throw new Error(`Couldn't fetch ${url} receive ${err}`);
     }
-
-    return res.json();
   }
 
   getTrendingShows (page) {
