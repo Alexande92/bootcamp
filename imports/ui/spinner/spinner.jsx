@@ -3,6 +3,6 @@ import './spinner.css';
 
 const Spinner = () => <div className="loader">Loading ...</div>;
 
-Spinner.displayNAme = 'Spinner';
+Spinner.displayName = 'Spinner';
 
 export default Spinner;
