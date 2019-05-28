@@ -12,7 +12,6 @@ class ShowService {
   getShows () {
     const data = this.service.getTrendingShows(this.currentPage);
     this.shows = this.shows.concat(JSON.parse(data.content));
-
     if (data.length !== 0) {
       this.currentPage += 1;
       this.getShows();
