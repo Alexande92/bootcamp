@@ -2,9 +2,9 @@ import React from 'react';
 
 import TableHeader from './table-header';
 
-const Table = ({ showList }) => (
+const Table = ({ showList, onSort }) => (
   <table>
-    <TableHeader />
+    <TableHeader onSort={onSort} />
     <tbody>
       {
         showList.map((show, index) => (

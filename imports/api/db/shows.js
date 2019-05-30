@@ -28,6 +28,7 @@ export default class ShowHandler {
         title: show.title,
         watchers: value.watchers,
         year: show.year,
+        imdb: show.ids.imdb,
         poster: value.poster,
       });
     });
