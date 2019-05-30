@@ -1,28 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const App = ({ loading, showList, test }) => (
-  <div>
-    <h1>
-      TV App is going to be here,
-      {test}
-    </h1>
-    <div>{loading}</div>
-    {
-      showList.map((show) => (
-        <li key={show._id}>
-          {show.title}
-        </li>
-      ))
-    }
-  </div>
+import AppHeader from './app-header';
+import SearchPanel from './search-panel';
+import TableContainer from '../containers/table-container';
+
+
+const App = () => (
+  <main className="container">
+    <AppHeader />
+    <SearchPanel />
+    <TableContainer />
+  </main>
 );
 
 App.displayName = 'App';
-App.propTypes = {
-  test: PropTypes.string,
-  loading: PropTypes.bool,
-  showList: PropTypes.array,
-};
 
 export default App;
