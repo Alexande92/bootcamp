@@ -13,9 +13,12 @@ import Table from '../components/table-content';
 const trackedData = withTracker(({ onSort, options }) => {
   const showHandle = Meteor.subscribe('shows');
   const loading = !showHandle.ready();
-  const showList = Shows.find({}, {
-    sort: options,
-  }).fetch();
+
+  const showList = Shows.find(
+    options.search, {
+      sort: options.sorting,
+    }
+  ).fetch();
 
   return {
     loading,
@@ -39,9 +42,23 @@ TableContainer.propTypes = {
   showList: PropTypes.array,
 };
 
-const mapStateToProps = (state) => {
-  const options = {};
-  options[state.sorting.name] = state.sorting.order;
+const mapStateToProps = ({ sorting, search }) => {
+  const options = {
+    sorting: {},
+    search: {},
+  };
+
+  options.sorting[sorting.name] = sorting.order;
+  options.search = {};
+
+  if (search.phrase) {
+    options.search = {
+      title: {
+        $regex: search.phrase,
+        $options: 'i',
+      },
+    };
+  }
 
   return {
     options,

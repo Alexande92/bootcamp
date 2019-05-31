@@ -3,6 +3,12 @@ const sortByColumn = (columnName) => ({
   payload: columnName,
 });
 
+const serchByShows = (phrase) => ({
+  type: 'SEARCH_BY_SHOWS',
+  payload: phrase,
+});
+
 export {
   sortByColumn,
+  serchByShows,
 };

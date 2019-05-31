@@ -1,14 +1,14 @@
 import React from 'react';
 
 import AppHeader from './app-header';
-import SearchPanel from './search-panel';
+import SearchContainer from '../containers/search-container';
 import TableContainer from '../containers/table-container';
 
 
 const App = () => (
   <main className="container">
     <AppHeader />
-    <SearchPanel />
+    <SearchContainer />
     <TableContainer />
   </main>
 );
