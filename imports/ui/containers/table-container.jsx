@@ -17,6 +17,8 @@ const trackedData = withTracker(({ onSort, options }) => {
   const showList = Shows.find(
     options.search, {
       sort: options.sorting,
+      limit: 5,
+      skip: 0,
     }
   ).fetch();
 

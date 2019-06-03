@@ -3,12 +3,24 @@ const sortByColumn = (columnName) => ({
   payload: columnName,
 });
 
-const serchByShows = (phrase) => ({
+const searchByShows = (phrase) => ({
   type: 'SEARCH_BY_SHOWS',
   payload: phrase,
 });
 
+const updateTotal = (total) => ({
+  type: 'UPDATE_TOTAL_NUMBER',
+  payload: total,
+});
+
+const goToPage = (page) => ({
+  type: 'GO_TO_PAGE',
+  payload: page,
+});
+
 export {
   sortByColumn,
-  serchByShows,
+  searchByShows,
+  updateTotal,
+  goToPage,
 };
