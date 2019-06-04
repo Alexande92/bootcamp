@@ -17,10 +17,11 @@ const trackedData = withTracker(({ onSort, options }) => {
   const showList = Shows.find(
     options.search, {
       sort: options.sorting,
-      limit: 5,
-      skip: 0,
+      limit: options.limit,
+      skip: (options.skip - 1) * options.limit,
     }
   ).fetch();
+
 
   return {
     loading,
@@ -44,12 +45,15 @@ TableContainer.propTypes = {
   showList: PropTypes.array,
 };
 
-const mapStateToProps = ({ sorting, search }) => {
+const mapStateToProps = ({ sorting, search, pagination }) => {
   const options = {
     sorting: {},
     search: {},
+    pagination: {},
   };
 
+  options.skip = pagination.currentPage;
+  options.limit = pagination.pageLimit;
   options.sorting[sorting.name] = sorting.order;
   options.search = {};
 

@@ -6,7 +6,6 @@ import AppContainer from './ui/containers/app-container';
 FlowRouter.route('/page/:id', {
   name: 'Shows.show',
   action (params) {
-    console.log('Flow');
     mount(AppContainer, {
       page: params.id,
     });

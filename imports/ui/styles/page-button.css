@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  background: #F15B42;
+  border: 1px solid white;
+}
+
+.pagination span {
+  color: black;
+  background: none;
+}
+
+.pagination a.active {
+  border: 1px solid #F15B42;
+  background: white;
+  color: #F15B42;
+}
