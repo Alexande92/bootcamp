@@ -10,18 +10,21 @@ import { Shows } from '../../api/db/shows';
 import Spinner from '../spinner';
 import Table from '../components/table-content';
 
+import '../styles/show-table.css';
+
 const trackedData = withTracker(({ onSort, options }) => {
   const showHandle = Meteor.subscribe('shows');
-  const loading = !showHandle.ready();
+  const loading = !showHandle.ready() && !options.total;
 
-  const showList = Shows.find(
+  let showList = Shows.find(
     options.search, {
       sort: options.sorting,
       limit: options.limit,
       skip: (options.skip - 1) * options.limit,
     }
-  ).fetch();
+  );
 
+  showList = showList.fetch();
 
   return {
     loading,
@@ -34,7 +37,13 @@ const TableContainer = ({ loading, showList, onSort }) => {
   if (loading) {
     return <Spinner />;
   }
-  return <Table showList={showList} onSort={onSort} />;
+  return (
+    <section className="show-table">
+      <div className="container">
+        <Table showList={showList} onSort={onSort} />
+      </div>
+    </section>
+  );
 };
 
 TableContainer.displayName = 'AppContainer';
@@ -54,6 +63,8 @@ const mapStateToProps = ({ sorting, search, pagination }) => {
 
   options.skip = pagination.currentPage;
   options.limit = pagination.pageLimit;
+  options.total = pagination.total;
+
   options.sorting[sorting.name] = sorting.order;
   options.search = {};
 

@@ -4,13 +4,19 @@ import PropTypes from 'prop-types';
 
 import { withTracker } from 'meteor/react-meteor-data';
 import { Shows } from '../../api/db/shows';
-import { updateTotal, goToPage } from '../../actions';
+import { goToPage, updateTotal } from '../../actions';
 import { getPaginatedArray } from '../utils';
 
 import PageButton from '../components/page-button';
+import Spinner from '../spinner';
 
-const PaginationContainer = ({ total, current, limit, setPageNumber }) => {
+const PaginationContainer = ({ total, current, limit, setPageNumber, loading }) => {
+  if (loading) {
+    return <Spinner />;
+  }
+
   const pages = getPaginatedArray(current, Math.ceil(total / limit));
+
   return (
     <div className="pagination">
       {
@@ -45,22 +51,42 @@ PaginationContainer.propTypes = {
 };
 
 const trackedData = withTracker((state) => {
-  const total = Shows.find().count();
-  if (total) {
+  const { phrase } = state;
+  const options = {};
+  let loading = false;
+
+  if (phrase) {
+    options.search = {
+      title: {
+        $regex: phrase,
+        $options: 'i',
+      },
+    };
+  }
+
+  const total = phrase
+    ? Shows.find(options.search)
+      .count()
+    : Shows.find()
+      .count();
+
+  if (total !== state.total) {
     state.getTotal(total);
+    loading = true;
   }
 
   return {
-    test: 'TestMessage',
+    loading,
   };
 });
 
 
-const mapStateToProps = ({ pagination }) => {
+const mapStateToProps = ({ pagination, search }) => {
   return {
     total: pagination.total,
     current: pagination.currentPage,
     limit: pagination.pageLimit,
+    phrase: search.phrase,
   };
 };
 

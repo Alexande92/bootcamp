@@ -12,6 +12,6 @@ const PageButton = ({ setPageNumber, text, isActive }) => (
   </a>
 );
 
-PageButton.displayName = 'SearchPanel';
+PageButton.displayName = 'PageButton';
 
 export default PageButton;

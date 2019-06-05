@@ -8,7 +8,7 @@ const SearchContainer = ({ onSearch }) => (
   <SearchPanel onSearch={onSearch} />
 );
 
-SearchContainer.displayName = 'SearchContainer'
+SearchContainer.displayName = 'SearchContainer';
 
 const mapDispatchToProps = (dispatch) => ({
   onSearch: (phrase) => {
