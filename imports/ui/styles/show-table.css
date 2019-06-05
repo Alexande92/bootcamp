@@ -1,0 +1,53 @@
+.show-table {
+  margin: 3.5rem auto;
+  max-width: 1400px;
+  overflow: auto;
+}
+
+.show-table table {
+  font-family: 'Raleway', sans-serif;;
+  width: 100%;
+  font-size: 22px;
+}
+
+.show-table thead th {
+  padding: 15px;
+}
+
+.show-table td {
+  text-align: center;
+}
+
+.show-table thead .show-number {
+  width: 7%;
+}
+
+.show-table thead .picture {
+  width: 34%;
+}
+
+.show-table thead .year {
+  width: 13%;
+}
+
+.show-table thead .name {
+  width: 27%;
+}
+
+.show-table thead .viewers {
+  width: 19%;
+}
+
+/*.show-table tbody .picture {*/
+/*  text-align: left;*/
+/*}*/
+
+@media(max-width: 850px) {
+  .show-table table {
+    font-size: 14px;
+  }
+
+  .show-table tbody img {
+    width: 70px;
+  }
+}

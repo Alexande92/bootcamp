@@ -3,15 +3,15 @@ import React from 'react';
 const TableHeader = ({ onSort }) => (
   <thead>
     <tr>
-      <th>#</th>
-      <th>Poster</th>
-      <th onClick={() => onSort('year')}>
+      <th className="show-number">№</th>
+      <th className="picture">Poster</th>
+      <th className="year" onClick={() => onSort('year')}>
         Year
       </th>
-      <th onClick={() => onSort('title')}>
+      <th className="name" onClick={() => onSort('title')}>
         Title
       </th>
-      <th onClick={() => onSort('watchers')}>
+      <th className="viewers" onClick={() => onSort('watchers')}>
         Watchers
       </th>
     </tr>

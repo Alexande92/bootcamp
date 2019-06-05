@@ -7,11 +7,11 @@
 
 .pagination a,
 .pagination span {
-  color: white;
+  /*color: white;*/
   padding: 8px 16px;
-  text-decoration: none;
-  background: #F15B42;
+  background: #fbeebc;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .pagination span {
@@ -20,7 +20,7 @@
 }
 
 .pagination a.active {
-  border: 1px solid #F15B42;
+  border: 2px solid #fbeebc;
   background: white;
-  color: #F15B42;
+  /*color: #F15B42;*/
 }

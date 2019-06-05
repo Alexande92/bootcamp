@@ -10,7 +10,7 @@ const Table = ({ showList, onSort }) => (
         showList.map((show, index) => (
           <tr key={index}>
             <td>{++index}</td>
-            <td>
+            <td className="picture">
               <img src={show.poster} alt="Poster" width="100" />
             </td>
             <td>{show.year}</td>

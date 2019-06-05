@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/app.css';
+
 import AppHeader from './app-header';
 import SearchContainer from '../containers/search-container';
 import TableContainer from '../containers/table-container';
