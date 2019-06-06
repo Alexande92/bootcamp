@@ -26,7 +26,7 @@ class TraktApiService {
   }
 
   getTrendingShows (page) {
-    return this.getResource(`${this.apiBase}/shows/trending/?page=${page}&limit=20`);
+    return this.getResource(`${this.apiBase}/shows/trending/?page=${page}&limit=30`);
   }
 }
 

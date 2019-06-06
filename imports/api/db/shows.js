@@ -7,6 +7,7 @@ export default class ShowHandler {
   constructor () {
     this.shows = Shows;
     this.updateRate = 86400000;
+    // this.updateRate = 600000;
   }
 
   truncateData () {
@@ -28,8 +29,10 @@ export default class ShowHandler {
         title: show.title,
         watchers: value.watchers,
         year: show.year,
-        imdb: show.ids.imdb,
-        poster: value.poster,
+        tvdb: show.ids.tvdb,
+        poster: null,
+        updatedDate: 0,
+        // poster: value.poster.replace(/\/fanart\//i, '/preview/'),
       });
     });
 

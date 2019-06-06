@@ -12,26 +12,46 @@ class ShowService {
   getShows () {
     const data = this.service.getTrendingShows(this.currentPage);
     this.shows = this.shows.concat(JSON.parse(data.content));
-    if (data.length !== 0) {
+
+    if (JSON.parse(data.content).length !== 0) {
       this.currentPage += 1;
       this.getShows();
     }
+    // console.log('Start poster parsing');
+    // this.getPosters();
 
-    this.getPosters();
+    console.log(this.shows);
     return this;
   }
 
-  getPosters () {
-    const data = this.shows;
-
-    data.forEach((value, index) => {
-      const showId = value.show.ids.tvdb;
+  getPosters (shows) {
+    shows.forEach((value, index) => {
+      const showId = value.tvdb;
       const posterImg = this.posterService.getShowPoster(showId).data;
 
-      this.shows[index].poster = posterImg.tvposter ? posterImg.tvposter[0].url
-        : posterImg.clearart[0].url;
+      if (value.tvdb === 296669) {
+        console.log(posterImg);
+      }
+
+      if (!posterImg || (
+        !posterImg.tvposter
+        && !posterImg.clearart
+        && !posterImg.showbackground
+        && !posterImg.hdtvlogo)
+      ) {
+        shows[index].poster = null;
+      } else if (posterImg.tvposter) {
+        shows[index].poster = posterImg.tvposter[0].url;
+      } else if (posterImg.hdtvlogo) {
+        shows[index].poster = posterImg.hdtvlogo[0].url;
+      } else if (posterImg.clearart) {
+        shows[index].poster = posterImg.clearart[0].url;
+      } else if (posterImg.showbackground) {
+        shows[index].poster = posterImg.showbackground[0].url;
+      }
     });
-    return this;
+
+    return shows;
   }
 }
 
