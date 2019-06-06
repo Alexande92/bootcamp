@@ -38,10 +38,8 @@ const TableContainer = ({ loading, showList, onSort }) => {
     return <Spinner />;
   }
   return (
-    <section className="show-table">
-      <div className="container">
-        <Table showList={showList} onSort={onSort} />
-      </div>
+    <section className="show-table ">
+      <Table showList={showList} onSort={onSort} />
     </section>
   );
 };

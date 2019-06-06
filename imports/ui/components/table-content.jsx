@@ -11,7 +11,7 @@ const Table = ({ showList, onSort }) => (
           <tr key={index}>
             <td>{++index}</td>
             <td className="picture">
-              <img src={show.poster} alt="Poster" width="100" />
+              <img src={show.poster ? show.poster : '/images/no-image.png'} alt="Poster" width="100" />
             </td>
             <td>{show.year}</td>
             <td>{show.title}</td>

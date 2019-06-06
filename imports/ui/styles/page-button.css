@@ -8,10 +8,12 @@
 .pagination a,
 .pagination span {
   /*color: white;*/
-  padding: 8px 16px;
+  padding: 8px 14px;
   background: #fbeebc;
   border: 1px solid white;
   cursor: pointer;
+  border-radius: 5px;
+  color: black;
 }
 
 .pagination span {
@@ -23,4 +25,19 @@
   border: 2px solid #fbeebc;
   background: white;
   /*color: #F15B42;*/
+}
+
+@media(max-width: 500px) {
+  .pagination a, .pagination span {
+    display: none;
+  }
+
+  .pagination .arrows {
+    display: inline-block;
+  }
+
+  .pagination a.active {
+    display: inline-block;
+  }
+
 }

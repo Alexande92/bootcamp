@@ -8,14 +8,23 @@
   font-family: 'Raleway', sans-serif;;
   width: 100%;
   font-size: 22px;
+  border-spacing: 8px;
 }
 
 .show-table thead th {
   padding: 15px;
+  border: 3px solid #f3f2f2;
 }
 
 .show-table td {
   text-align: center;
+}
+
+.show-table thead .table-sort {
+  width: 20px;
+  vertical-align: middle;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .show-table thead .show-number {
@@ -38,13 +47,23 @@
   width: 19%;
 }
 
-/*.show-table tbody .picture {*/
-/*  text-align: left;*/
-/*}*/
+.show-table tbody tr:nth-child(odd) {
+  background: #fafafa;
+}
+
+.show-table tbody tr:nth-child(even) {
+  background: #f3f2f2;
+}
 
 @media(max-width: 850px) {
   .show-table table {
-    font-size: 14px;
+    font-size: 12px;
+  }
+
+
+  .show-table thead .table-sort {
+    /*width: 14px;*/
+    display: none;
   }
 
   .show-table tbody img {

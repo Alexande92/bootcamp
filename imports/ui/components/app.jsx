@@ -8,7 +8,7 @@ import TableContainer from '../containers/table-container';
 import PaginationContainer from '../containers/pagination-container';
 
 const App = ({ page }) => (
-  <main className="container">
+  <main className="">
     <AppHeader />
     <SearchContainer />
     <TableContainer page={page} />

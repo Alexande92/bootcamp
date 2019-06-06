@@ -2,7 +2,7 @@ const goToPage = (state, action) => {
   if (state === undefined) {
     return {
       currentPage: 1,
-      pageLimit: 5,
+      pageLimit: 10,
       total: 0,
     };
   }

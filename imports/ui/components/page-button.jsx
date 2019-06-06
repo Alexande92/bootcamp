@@ -6,7 +6,7 @@ const PageButton = ({ setPageNumber, text, isActive }) => (
   <a
     href={`/page/${text}`}
     onClick={() => setPageNumber(text)}
-    className={isActive ? 'active' : 'voyu'}
+    className={isActive ? 'active' : null}
   >
     {text}
   </a>

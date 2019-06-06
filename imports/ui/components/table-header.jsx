@@ -7,12 +7,15 @@ const TableHeader = ({ onSort }) => (
       <th className="picture">Poster</th>
       <th className="year" onClick={() => onSort('year')}>
         Year
+        <img src="/images/double-arrow.svg" className="table-sort" />
       </th>
       <th className="name" onClick={() => onSort('title')}>
         Title
+        <img src="/images/double-arrow.svg" className="table-sort" />
       </th>
       <th className="viewers" onClick={() => onSort('watchers')}>
         Watchers
+        <img src="/images/double-arrow.svg" className="table-sort" />
       </th>
     </tr>
   </thead>

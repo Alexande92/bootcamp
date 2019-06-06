@@ -9,9 +9,14 @@
 
 .container {
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 a {
   text-decoration: none;
+}
+
+/*Util classes*/
+.hide {
+  display: none;
 }
