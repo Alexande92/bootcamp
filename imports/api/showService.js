@@ -17,10 +17,6 @@ class ShowService {
       this.currentPage += 1;
       this.getShows();
     }
-    // console.log('Start poster parsing');
-    // this.getPosters();
-
-    console.log(this.shows);
     return this;
   }
 
@@ -28,10 +24,6 @@ class ShowService {
     shows.forEach((value, index) => {
       const showId = value.tvdb;
       const posterImg = this.posterService.getShowPoster(showId).data;
-
-      if (value.tvdb === 296669) {
-        console.log(posterImg);
-      }
 
       if (!posterImg || (
         !posterImg.tvposter

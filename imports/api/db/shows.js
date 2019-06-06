@@ -7,7 +7,6 @@ export default class ShowHandler {
   constructor () {
     this.shows = Shows;
     this.updateRate = 86400000;
-    // this.updateRate = 600000;
   }
 
   truncateData () {
