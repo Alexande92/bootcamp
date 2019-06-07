@@ -2,14 +2,14 @@ import React from 'react';
 
 import '../styles/app.css';
 
-import AppHeader from './app-header';
+import AppHeaderContainer from '../containers/app-header';
 import SearchContainer from '../containers/search-container';
 import TableContainer from '../containers/table-container';
 import PaginationContainer from '../containers/pagination-container';
 
 const App = ({ page }) => (
   <main className="">
-    <AppHeader />
+    <AppHeaderContainer />
     <SearchContainer />
     <TableContainer page={page} />
     <PaginationContainer />

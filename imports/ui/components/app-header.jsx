@@ -1,8 +1,7 @@
 import React from 'react';
-
 import '../styles/app-header.css';
 
-const AppHeader = () => (
+const AppHeader = ({ onSet }) => (
   <header className="container">
     <div className="logo">
       <img src="/images/logo.svg" alt="logo" />
@@ -10,7 +9,7 @@ const AppHeader = () => (
     <nav className="navbar">
       <ul className="link-list">
         <li>
-          <a href="/" className="active">Main</a>
+          <a href="#" onClick={() => onSet()} className="active">Main</a>
         </li>
         <li>
           <a href="#">Test</a>
@@ -23,6 +22,6 @@ const AppHeader = () => (
   </header>
 );
 
-AppHeader.displayName = 'AppHeader'
+AppHeader.displayName = 'AppHeader';
 
 export default AppHeader;
