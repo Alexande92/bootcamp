@@ -18,9 +18,14 @@ const goToPage = (page) => ({
   payload: page,
 });
 
+const setToDefault = () => ({
+  type: 'SET_TO_DEFAULT',
+});
+
 export {
   sortByColumn,
   searchByShows,
   updateTotal,
   goToPage,
+  setToDefault,
 };

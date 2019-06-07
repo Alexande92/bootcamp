@@ -14,13 +14,6 @@ const sortByColumn = (state, action) => {
 };
 
 const sortShowList = (state, action) => {
-  if (state === undefined) {
-    return {
-      name: 'watchers',
-      order: -1,
-    };
-  }
-
   return action.type === 'SORT_BY_COLUMN' ? sortByColumn(state, action)
     : state.sorting;
 };

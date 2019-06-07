@@ -1,12 +1,4 @@
 const goToPage = (state, action) => {
-  if (state === undefined) {
-    return {
-      currentPage: 1,
-      pageLimit: 10,
-      total: 0,
-    };
-  }
-
   switch (action.type) {
     case 'UPDATE_TOTAL_NUMBER':
       return {
