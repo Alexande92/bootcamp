@@ -12,10 +12,8 @@ SearchContainer.displayName = 'SearchContainer';
 
 const mapDispatchToProps = (dispatch) => ({
   onSearch: (phrase) => {
-    // if (phrase.length > 2) {
     dispatch(goToPage(1));
     dispatch(searchByShows(phrase));
-    // }
   },
 });
 

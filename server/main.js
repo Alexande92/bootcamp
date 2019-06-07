@@ -17,7 +17,6 @@ Meteor.startup(() => {
   }, showHandler.updateRate);
 
   Meteor.setInterval(() => {
-    console.log('Posters');
     const now = new Date(Date.now());
     const compareTime = Date.parse(`${now.getFullYear()} ${now.getMonth() + 1} ${now.getDate()}`);
     const service = new ShowService();
@@ -42,7 +41,5 @@ Meteor.startup(() => {
         }
       );
     });
-
-    console.log(shows);
   }, 300000);
 });
