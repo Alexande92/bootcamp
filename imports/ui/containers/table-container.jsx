@@ -8,7 +8,7 @@ import { sortByColumn } from '../../actions';
 
 import { Shows } from '../../api/db/shows';
 import Spinner from '../spinner';
-import Table from '../components/table-content';
+import TableWrapper from '../components/table-wrapper';
 
 import '../styles/show-table.css';
 
@@ -38,9 +38,7 @@ const TableContainer = ({ loading, showList, onSort }) => {
     return <Spinner />;
   }
   return (
-    <section className="show-table ">
-      <Table showList={showList} onSort={onSort} />
-    </section>
+    <TableWrapper showList={showList} onSort={onSort} />
   );
 };
 
