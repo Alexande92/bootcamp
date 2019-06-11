@@ -49,7 +49,6 @@ if (Meteor.isServer) {
     it('shows successfully added', () => {
       showHandler.truncateData().saveShows([showOne]);
       const res = Shows.find({title: showOne.show.title}).fetch();
-      console.log(res);
 
       expect(res[0].title).toBe('Disney');
       expect(res[0].year).toBe(2019);
