@@ -9,11 +9,11 @@ class ShowService {
     this.shows = [];
   }
 
-  getShows () {
+  getShows (shouldContinue = true) {
     const data = this.service.getTrendingShows(this.currentPage);
     this.shows = this.shows.concat(JSON.parse(data.content));
 
-    if (JSON.parse(data.content).length !== 0) {
+    if (JSON.parse(data.content).length !== 0 && shouldContinue) {
       this.currentPage += 1;
       this.getShows();
     }
@@ -23,7 +23,9 @@ class ShowService {
   getPosters (shows) {
     shows.forEach((value, index) => {
       const showId = value.tvdb;
-      const posterImg = this.posterService.getShowPoster(showId).data;
+
+      const res = this.posterService.getShowPoster(showId);
+      const posterImg = res.data ? res.data : null;
 
       if (!posterImg || (
         !posterImg.tvposter

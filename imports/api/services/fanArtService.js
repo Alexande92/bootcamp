@@ -15,10 +15,7 @@ class FanArtService {
     try {
       return HTTP.call('GET', url);
     } catch (err) {
-      console.log(`Couldn't fetch ${url} receive ${err}`);
-      return {
-        data: null,
-      };
+      return new Error(`Couldn't fetch ${url} receive ${err}`);
     }
   }
 

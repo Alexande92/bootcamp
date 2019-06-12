@@ -21,7 +21,7 @@ class TraktApiService {
         headers: this.getHeaders(),
       });
     } catch (err) {
-      throw new Error(`Couldn't fetch ${url} receive ${err}`);
+      return new Error(`Couldn't fetch ${url} receive ${err}`);
     }
   }
 
