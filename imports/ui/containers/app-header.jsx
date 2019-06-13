@@ -12,7 +12,7 @@ const AppHeaderContainer = ({ onSet }) => (
 AppHeaderContainer.displayName = 'AppHeaderContainer';
 
 AppHeaderContainer.propTypes = {
-  onSet: PropTypes.func,
+  onSet: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

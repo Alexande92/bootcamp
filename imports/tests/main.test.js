@@ -1,12 +1,17 @@
-import expect from 'expect'
+import expect  from 'expect'
 import { Meteor } from "meteor/meteor";
-import './server';
+
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 describe('FF Bootcamp project', () => {
   if (Meteor.isClient) {
     it('client is not server', () => {
       expect(Meteor.isServer).toEqual(false);
     });
+    import './client';
   }
 
   if (Meteor.isServer) {
@@ -18,6 +23,7 @@ describe('FF Bootcamp project', () => {
     it('server is not client', () => {
       expect(Meteor.isClient).toEqual(false);
     });
+    import './server';
   }
 });
 

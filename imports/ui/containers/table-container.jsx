@@ -46,8 +46,8 @@ TableContainer.displayName = 'AppContainer';
 
 TableContainer.propTypes = {
   onSort: PropTypes.func,
-  loading: PropTypes.bool,
-  showList: PropTypes.array,
+  loading: PropTypes.bool.isRequired,
+  showList: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = ({ sorting, search, pagination }) => {
