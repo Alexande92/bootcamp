@@ -14,7 +14,7 @@ Meteor.startup(() => {
 
     showHandler.truncateData()
       .saveShows(service.shows);
-  }, 1800000);
+  }, showHandler.updateRate);
 
   Meteor.setInterval(() => {
     const now = new Date(Date.now());
