@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { HTTP } from 'meteor/http';
 
 import ShowHandler, { Shows } from '../imports/api/db/shows';
 import ShowService from '../imports/api/showService';
@@ -41,5 +42,10 @@ Meteor.startup(() => {
         }
       );
     });
+  }, 300000);
+
+
+  setInterval(() => {
+    HTTP.call('GET', 'http://calm-everglades-45949.herokuapp.com');
   }, 300000);
 });
