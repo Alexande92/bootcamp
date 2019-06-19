@@ -9,13 +9,13 @@ Meteor.startup(() => {
   const showHandler = new ShowHandler();
   showHandler.publish();
 
-  Meteor.setInterval(() => {
+  // Meteor.setInterval(() => {
     const service = new ShowService();
     service.getShows();
 
     showHandler.truncateData()
       .saveShows(service.shows);
-  }, showHandler.updateRate);
+  // }, showHandler.updateRate);
 
   Meteor.setInterval(() => {
     const now = new Date(Date.now());
