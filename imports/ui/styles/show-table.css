@@ -21,6 +21,13 @@
   text-align: center;
 }
 
+.imageloader.imageloader-loaded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 142.5px;
+}
+
 .show-table thead .table-sort {
   width: 20px;
   vertical-align: middle;
@@ -69,5 +76,9 @@
 
   .show-table tbody img {
     width: 70px;
+  }
+
+  .imageloader.imageloader-loaded {
+    height: 99.75px;
   }
 }

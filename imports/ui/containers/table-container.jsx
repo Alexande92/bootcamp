@@ -14,7 +14,7 @@ import '../styles/show-table.css';
 
 const trackedData = withTracker(({ onSort, options }) => {
   const showHandle = Meteor.subscribe('shows');
-  const loading = !showHandle.ready() && !options.total;
+  const loading = !showHandle.ready() || !options.total;
 
   let showList = Shows.find(
     options.search, {
@@ -37,6 +37,7 @@ const TableContainer = ({ loading, showList, onSort }) => {
   if (loading) {
     return <Spinner />;
   }
+
   return (
     <TableWrapper showList={showList} onSort={onSort} />
   );

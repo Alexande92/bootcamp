@@ -5,7 +5,7 @@
   flex-wrap: wrap;
 }
 
-.pagination a,
+.pagination button,
 .pagination span {
   /*color: white;*/
   padding: 8px 14px;
@@ -21,14 +21,13 @@
   background: none;
 }
 
-.pagination a.active {
+.pagination button.active {
   border: 2px solid #fbeebc;
   background: white;
-  /*color: #F15B42;*/
 }
 
 @media(max-width: 500px) {
-  .pagination a, .pagination span {
+  .pagination button, .pagination span {
     display: none;
   }
 
@@ -36,7 +35,7 @@
     display: inline-block;
   }
 
-  .pagination a.active {
+  .pagination button.active {
     display: inline-block;
   }
 
