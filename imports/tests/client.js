@@ -126,7 +126,7 @@ describe('Pagination component', () => {
 
   it('should have buttons', () => {
     const wrapper = mount(<PagainationWrapper current={1} pages={[1, 2, 3, 4, 5]} />);
-    expect(wrapper.find('a').length)
+    expect(wrapper.find('button').length)
       .toBe(5);
   });
 
@@ -140,7 +140,7 @@ describe('Pagination component', () => {
       setPageNumber={setPageNumber}
     />);
 
-    wrapper.find('a.active')
+    wrapper.find('button.active')
       .simulate('click');
 
     expect(setPageNumber)

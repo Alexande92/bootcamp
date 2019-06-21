@@ -3,13 +3,12 @@ import React from 'react';
 import '../styles/page-button.css';
 
 const PageButton = ({ setPageNumber, text, isActive }) => (
-  <a
-    href={`/page/${text}`}
+  <button
     onClick={() => setPageNumber(text)}
     className={isActive ? 'active' : null}
   >
     {text}
-  </a>
+  </button>
 );
 
 PageButton.displayName = 'PageButton';

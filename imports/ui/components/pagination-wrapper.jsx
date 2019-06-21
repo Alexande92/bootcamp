@@ -5,7 +5,7 @@ const PaginationWrapper = ({ current, pages, total, limit, setPageNumber }) => (
   <section className="pagination">
     <div className="container">
       { current > 1
-        ? <a href={`/page/${current - 1}`} className="hide arrows" onClick={() => setPageNumber(current - 1)}>Prev</a>
+        ? <button  className="hide arrows" onClick={() => setPageNumber(current - 1)}>Prev</button>
         : null
       }
       {
@@ -27,7 +27,7 @@ const PaginationWrapper = ({ current, pages, total, limit, setPageNumber }) => (
         })
       }
       { current < Math.ceil(total / limit)
-        ? (<a href={`/page/${current + 1}`} className="hide arrows" onClick={() => setPageNumber(current + 1)}>Next</a>)
+        ? (<button className="hide arrows" onClick={() => setPageNumber(current + 1)}>Next</button>)
         : null
       }
     </div>
